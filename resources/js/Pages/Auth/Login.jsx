@@ -79,7 +79,7 @@ export default function Login({ status, canResetPassword }) {
 
                 <div className="flex flex-col mt-5 gap-3">
                     <div>
-                        <PrimaryButton className="" disabled={processing}>
+                        <PrimaryButton className="bg-primary" disabled={processing}>
                             Entrar
                         </PrimaryButton>
                     </div>
@@ -87,7 +87,7 @@ export default function Login({ status, canResetPassword }) {
                         {canResetPassword && (
                             <Link
                                 href={route('password.request')}
-                                className="underline text-sm text-gray-500 hover:text-gray-900  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="underline text-sm text-gray-900  hover:text-gray-900  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
                                 Esqueceu sua senha?
                             </Link>
