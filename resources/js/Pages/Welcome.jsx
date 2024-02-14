@@ -58,80 +58,62 @@
 
 import { useState } from 'react'
 import { Link, Head } from '@inertiajs/react';
+import img from '../../img/invokevendas_m.png';
 const navigation = [
-  { name: 'Sobre o sistema', href: '#' },
   { name: 'Contato', href: '#' },
 ]
 
-export default function Example() {
+export default function Welcome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-      <div className="bg-white">
+        <div className="bg-white container mx-auto">
             <Head title='Bem-vindo!'/>
-            <header className="absolute inset-x-0 top-0 z-50">
-                <nav className="flex p-6 sm:px-8" aria-label="Global">
+            <header>
+                <nav className="flex p-5 sm:px-5 justify-between" >
                     <div className='flex sm:flex-1'>
-                        <div className="flex">
-                            <a href="">   
-                                <img
-                                    className="h-10 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                    alt="Página inicial"
-                                />
-                            </a>    
-                            <strong className='text-xl flex items-center ml-2'>Invoke Vendas</strong> 
-                        </div>
+                        <a href="" className='flex'>   
+                            <img className="h-10 w-auto" src={img}/>
+                            <strong className='text-2xl flex items-center ml-2'>Invoke Vendas</strong> 
+                        </a>    
                     </div>
                     <div className='flex gap-4'>
                         {/* Menu do mobile */}
-                        <div className="flex  sm:hidden">
-                            <button
-                            className="inline-flex items-center justify-center rounded-md p-4  bg-black"
-                            onClick={() => setMobileMenuOpen(true)}
-                            > 
+                        <div className="flex sm:hidden">
+                            <button className=" rounded-md px-3 text-white bg-gray-700 " onClick={() => setMobileMenuOpen(true)}> 
+                                <i class="fas fa-bars text-3xl"></i>
                             </button>
                         </div>
+                        <div className='hidden sm:contents'>
                             {navigation.map((item) => (
                             <a key={item.name} href={item.href} className=" rounded-lg bg-gray-200  px-4  text-gray-600 hover:bg-gray-300 flex items-center justify-center">
                                 {item.name}
                             </a>
                             ))}
-                        
-                        <Link href={route('register')} className='bg-gray-200 hover:bg-gray-300  px-3 rounded-lg text-gray-600 flex items-center'>
-                            Cadastrar
-                        </Link>
-                        <Link href={route('login')} className='bg-blue-500 hover:bg-blue-700 hover:text-gray-800 text-gray-100 px-3 rounded-lg  flex items-center'>
-                            Fazer login
-                        </Link>
+                            
+                            <Link href={route('register')} className='bg-gray-200 hover:bg-gray-300  px-3 rounded-lg text-gray-600 flex items-center'>
+                                Criar conta
+                            </Link>
+                            <Link href={route('login')} className='bg-blue-500 hover:bg-blue-700 hover:text-gray-800 text-gray-100 px-3 rounded-lg  flex items-center'>
+                                Fazer login
+                            </Link>
+                        </div>
                     </div>
                 </nav>
             </header>
-
-            <div className="relative isolate px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl  lg:pt-36">
-                    <div className="text-start">
-                        <h1 className="font-bold tracking-tight text-gray-900 sm:text-5xl">
-                            Bem-vindo ao nosso site, aqui temos o sistema que você precisa!
-                        </h1>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Temos um sistema de vendas completo, de venda rápida com bom desempenho!
-                            <p>Do jeitinho que você gosta, rápido e fácil de usar.</p>
-                        </p>
-                        <div className="mt-10 flex items-center  gap-x-6">
-                            <a
-                                href="#"
-                                className="rounded-md bg-indigo-600 px-7 py-3  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >
-                            Acesse já!
-                            </a>
-                            <a href="" className=" text-gray-900">
-                            Ver tutorial <span aria-hidden="true"> → </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <section className='flex p-5 h-60 mt-16 bg-gray-300s sm:mt-44  lg:mt-56'>
+               <div className='flex-1'>
+                    <h1 className='font-bold text-2xl sm:text-5xl lg:text-7xl'>
+                        Bem-vindo ao nosso site!
+                    </h1>
+                    <p className='lg:mt-10   lg:mr-56 text-lg text-gray-400 sm:text-2xl lg:text-4xl'>
+                        Temos um sistema de vendas completo, ele permite realizar vendas rápidas e possui um ótimo desempenho!
+                    </p>
+               </div>
+               <div className='flex-1 sm:hidden lg:inline-block '>  
+                    <img className="h-48 w-auto animate-bounce" src={img}/>
+               </div>
+            </section>
         </div>
   )
 }
